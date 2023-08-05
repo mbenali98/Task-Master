@@ -1,0 +1,40 @@
+{% extends 'base.html' %}}
+
+{% block head %}
+<title>CLICK</title>
+    <style>
+
+        .gif-container {
+            width: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto; /* Centre the input box horizontally */
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Centre the gif horizontally inside the container. */
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center; font-size: 64px">Timer</h1>
+
+    <br><br>
+
+    <div class="gif-container">
+        <img src="{{ url_for('static', filename='images/Temp.gif')}}" alt="Animation GIF">
+    </div>
+
+    <script>
+        // Redireccionar a la página de inicio después de 5 segundos
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 5000);
+    </script>
+
+{% endblock %}

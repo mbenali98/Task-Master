@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: lightblue;
+}
+
+.content {
+    margin: 0;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.container-title {
+    background-color: aquamarine;
+    padding: 10px;
+    color: black;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.Container-form1 {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto; /* Centrar horizontalmente el cuadro de entrada */
+}
+
+.section-divider {
+    border: none;
+    border-top: 5px solid #000;
+    margin: 0;
+    width: 100%;
+}
+
+#content {
+    width: 100%;
+}
+
+.image-container {
+    text-align: center; /* Centrar el contenido horizontalmente */
+    max-width: 100%; /* Establecer un ancho máximo del 100% del contenedor */
+    height: auto; /* Asegurar que la altura se ajuste proporcionalmente */
+}

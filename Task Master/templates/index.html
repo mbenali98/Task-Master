@@ -1,0 +1,96 @@
+{% extends 'base.html' %}}
+
+{% block head %}
+<title>Task Master</title>
+    <style>
+        /* Define the animation called "ChangeColour" */
+        @keyframes ChangeColour {
+            0% { color: red; } /* Initial colour */
+            50% { color: blue; } /* Colour in the middle of the animation */
+            100% { color: green; } /* End colour */
+        }
+
+        /* Style h3 for animation */
+        h3 {
+            animation: ChangeColour 3s infinite; /* Apply the animation for 3 seconds and repeat it infinitely */
+            text-align: center;
+        }
+    </style>
+
+    <style>
+        body {
+            display: flex; /* To use the Flexbox properties */
+            flex-direction: column; /* elements will be displayed in a vertical column */
+            justify-content: flex-start; /* vertically align the elements */
+            align-items: center; /* centre the elements within the horizontal axis */
+            height: 100vh;
+            margin: 0; /* browser margins */
+        }
+
+        .container-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0; /* title margin */
+            font-weight: bold;
+        }
+
+        .right-text {
+            font-size: 12px;
+            margin-left: auto; /* the additional text is aligned to the right */
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="container-title">
+        <h1>TEXT WITH PRIORITY 1</h1>
+        <span class="right-text">TEXTO DERECHA</span>
+    </div>
+
+    <hr class="section-divider">
+
+    <br>
+    <h2 style="color: brown ;text-align: center">TEXT WITH PRIORITY 2</h2>
+    <br>
+    <h3>TEXT WITH PRIORITY 3</h3>
+    <br>
+
+    <h2 style="text-align: center">Task Master</h2>
+
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{ task.id }}">Delete</a>
+                    <br>
+                    <a href="/update/{{ task.id }}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
